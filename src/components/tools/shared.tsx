@@ -65,7 +65,7 @@ export function EmptyState({
   );
 }
 
-export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
+export function ErrorState({ message, onRetry }: { message: string; onRetry?: (() => void) | undefined }) {
   return (
     <div className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-4 text-sm">
       <p className="font-medium text-destructive">Something went wrong</p>

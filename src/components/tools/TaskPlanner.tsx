@@ -129,10 +129,14 @@ export function TaskPlanner() {
 
   function move(index: number, dir: -1 | 1) {
     setTasks((prev) => {
-      const next = [...prev];
       const target = index + dir;
-      if (target < 0 || target >= next.length) return prev;
-      [next[index], next[target]] = [next[target], next[index]];
+      if (target < 0 || target >= prev.length) return prev;
+      const next = [...prev];
+      const a = next[index];
+      const b = next[target];
+      if (!a || !b) return prev;
+      next[index] = b;
+      next[target] = a;
       return next;
     });
   }
